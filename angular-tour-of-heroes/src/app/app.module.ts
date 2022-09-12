@@ -7,18 +7,21 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent} from './hero-detail/hero-detail.component';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     KirbyModule,
-    RouterTestingModule
+    RouterTestingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
