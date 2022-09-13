@@ -1,6 +1,6 @@
 <div *ngIf="messageService.messages.length">
     <h2>Messages</h2>
-    <button type="button" class="clear" (click)="messageService.clear()">Clear messages</button>
-    <button type="button" class="clear" (click)="messageService.remove()">Remove message</button>
+    <button kirby-button (click)="messageService.clear()">Clear messages</button>
+     <button kirby-button (click)="messageService.remove()">Remove message</button>
     <div *ngFor='let message of messageService.messages'> {{message}} </div>
 </div>

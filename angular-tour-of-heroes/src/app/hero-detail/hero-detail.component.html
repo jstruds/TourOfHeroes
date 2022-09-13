@@ -1,3 +1,5 @@
+
+
 <div *ngIf="hero">
 
   <h2>{{hero.name | uppercase}} Details</h2>
@@ -7,4 +9,5 @@
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
   </div>
 </div>
-<button type="button" (click)="goBack()">go back</button>
+<button kirby-button size="sm" (click)="goBack()">Go back!</button>
+<button kirby-button size="sm" (click)="save()">save</button>
