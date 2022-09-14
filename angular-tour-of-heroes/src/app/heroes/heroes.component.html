@@ -1,8 +1,8 @@
-<h2>My Heroes</h2>
+<h2 class="my-heroes-title">My Heroes</h2>
     <kirby-card [hasPadding]="true" themeColor="primary" >
 
       <kirby-list [items]="heroes" (itemSelect)="onItemSelect($event)"
-      [showDivider]="true">
+      [showDivider]="true" class="heroes-list">
         <!-- HEADER-->
         <kirby-list-header *kirbyListHeader>
           <h2 slot="start">Id</h2>
@@ -10,12 +10,10 @@
         </kirby-list-header>
       
         <!-- BODY -->
-        <kirby-item *kirbyListItemTemplate="let hero">
+        <kirby-item *kirbyListItemTemplate="let hero" routerLink="/detail/{{hero.id}}">
             <kirby-badge themeColor="warning">{{hero.id}}</kirby-badge>
             <label slot="end">
-              <a routerLink="/detail/{{hero.id}}">
                 {{hero.name}}
-              </a>
               <button kirby-button size="sm" attentionLevel="2" (click)="delete(hero)" [isDestructive]="true">
                 <kirby-icon name="close"></kirby-icon>
               </button>

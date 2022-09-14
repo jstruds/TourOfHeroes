@@ -36,6 +36,10 @@ export class HeroService {
     };
   }
   
+  testmethod(): string {
+    return "test";
+  }
+
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
