@@ -1,9 +1,19 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes"
-    routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
-  </a>
-</div>
+<kirby-card [hasPadding]="true" themeColor="primary">
+  <kirby-card-header> <h2>Top Heroes</h2></kirby-card-header>
 
-<app-hero-search></app-hero-search>
+  <!-- Card content example: -->
+  <div class="card-content">
+
+      <div class="top-heroes-collection">
+      <kirby-chip class="top-heroes"
+        *ngFor="let hero of heroes"
+        text="{{hero.name}}"
+        routerLink="/detail/{{hero.id}}"
+      ></kirby-chip>
+    </div>
+  </div>
+  <kirby-card-footer>
+    <app-hero-search></app-hero-search>
+  </kirby-card-footer>
+</kirby-card>
+

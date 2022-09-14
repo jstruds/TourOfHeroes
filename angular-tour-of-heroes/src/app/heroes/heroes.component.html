@@ -1,21 +1,42 @@
 <h2>My Heroes</h2>
+    <kirby-card [hasPadding]="true" themeColor="primary" >
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <kirby-badge themeColor="danger">{{hero.id}}</kirby-badge> {{hero.name}}
-    </a>
-    <button kirby-button size="sm" (click)="delete(hero)" [isDestructive]="true">X</button>
-  </li>
-</ul>
-<div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
+      <kirby-list [items]="heroes" (itemSelect)="onItemSelect($event)"
+      [showDivider]="true">
+        <!-- HEADER-->
+        <kirby-list-header *kirbyListHeader>
+          <h2 slot="start">Id</h2>
+          <h2>Hero name</h2>
+        </kirby-list-header>
+      
+        <!-- BODY -->
+        <kirby-item *kirbyListItemTemplate="let hero">
+            <kirby-badge themeColor="warning">{{hero.id}}</kirby-badge>
+            <label slot="end">
+              <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+              </a>
+              <button kirby-button size="sm" attentionLevel="2" (click)="delete(hero)" [isDestructive]="true">
+                <kirby-icon name="close"></kirby-icon>
+              </button>
+            </label>
+            
+        </kirby-item>
+      
+        <!-- Footer -->
+        <div class="footer" *kirbyListFooter>
+          <label for="new-hero" style="padding-left: 10px;">Hero name: </label>
+          <input id="new-hero" #heroName />
+          <!-- (click) passes input value to add() and then clears the input -->
+          <button kirby-button (click)="add(heroName.value); heroName.value=''">Add hero</button>
+        </div>
+      </kirby-list>
+    
+    </kirby-card>
+    
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button kirby-button (click)="add(heroName.value); heroName.value=''">Add hero</button>
 
-</div>
+
 
 
 

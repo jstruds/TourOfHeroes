@@ -1,11 +1,22 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-    <a [routerLink]="'heroes'">H</a>
-</nav>
+<h1 class="title">{{title}}</h1>
+<kirby-card [hasPadding]="true" themeColor="light" isSelected="true">
+    <kirby-chip
+    [routerLink]="'dashboard'"
+      text="Dashboard"
+      (click)="onChipSelect(0)"
+      [isSelected]="selectedIndex === 0"
+    ></kirby-chip>
+    <kirby-chip
+    [routerLink]="'heroes'"
+      text="Heroes"
+      (click)="onChipSelect(1)"
+      [isSelected]="selectedIndex === 1"
+    ></kirby-chip>
+ </kirby-card>
+
 
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+
 
 <!--<button kirby-button>Medium Button (default)</button>-->

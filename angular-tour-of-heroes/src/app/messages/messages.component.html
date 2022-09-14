@@ -1,6 +1,9 @@
-<div *ngIf="messageService.messages.length">
-    <h2>Messages</h2>
-    <button kirby-button (click)="messageService.clear()">Clear messages</button>
-     <button kirby-button (click)="messageService.remove()">Remove message</button>
-    <div *ngFor='let message of messageService.messages'> {{message}} </div>
-</div>
+
+<kirby-card [hasPadding]="true" themeColor="medium">
+    <div *ngIf="messageService.messages.length">
+        <h2>Messages</h2>
+        <div *ngFor='let message of messageService.messages'> {{message}} </div>
+        <button kirby-button (click)="messageService.remove()" attentionLevel="3" [isDestructive]="true">Remove message</button>
+        <button kirby-button (click)="messageService.clear()" [isDestructive]="true">Clear messages</button>
+    </div>
+</kirby-card>
