@@ -13,6 +13,7 @@ export class HeroService {
   
   private heroesUrl = 'api/heroes';
 
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -34,10 +35,6 @@ export class HeroService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-  
-  testmethod(): string {
-    return "test";
   }
 
   getHeroes(): Observable<Hero[]> {
@@ -91,5 +88,4 @@ export class HeroService {
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
-
 }

@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { KirbyTestingModule } from '@kirbydesign/designsystem/testing-jasmine';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        KirbyTestingModule
       ],
       declarations: [
         AppComponent

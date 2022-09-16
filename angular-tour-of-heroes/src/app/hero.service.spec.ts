@@ -1,27 +1,25 @@
 import { TestBed } from '@angular/core/testing';
-import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import { HttpClientModule } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-describe('HeroService', () => {
-  let service: HeroService;
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MessageService } from './message.service';
+import { Hero } from './hero';
 
+
+describe('HeroService', () => {
+  let heroservice: HeroService;
   beforeEach(() => {
+
     TestBed.configureTestingModule({
-      imports: [HttpClientModule]
+      imports: [HttpClientModule],
+      providers: [
+        HeroService
+      ]
     });
-    service = TestBed.inject(HeroService);
+    heroservice = TestBed.inject(HeroService);
+    
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(heroservice).toBeTruthy();
   });
-
-  
-  it('test test', () => {
-    let test = service.testmethod();
-    
-    expect(test == "test").toBeTruthy();
-  });
-
 });

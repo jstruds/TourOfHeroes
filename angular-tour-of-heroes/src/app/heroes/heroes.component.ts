@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
 import  { HeroService } from '../hero.service';
 import { MessageService } from 'app/message.service';
-import { ButtonSize } from '@kirbydesign/designsystem';
 
 @Component({
   selector: 'app-heroes',
